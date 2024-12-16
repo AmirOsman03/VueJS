@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Password strength indicator</title>
+    <link rel='stylesheet' href='css/all.css'>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Dodavame link za css -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+<!-- Tuka e id-to APP -->
+<div id="app" class="container">
+    <h1>Vue Password Strength Indicator</h1>
+    <label class="frmLabel" for="app">Password</label>
+    <!-- Tuka dodadovme @input="password = $event.target.value" i model="password" -->
+    <input placeholder="Enter your password" name="password" class="frmField" type="password"
+           @input="password = $event.target.value" v-model="password"/>
+
+    <!-- Obicna proverka za dolzinata na lozinkata -->
+    <p class="frmValidation" :class="{'frmValidation--passed' : message.length > 7}">
+        <i class="frmIcon fas" :class="message.length > 7 ? 'fa-check' : 'fa-times'"></i>
+        Longer than 7 characters
+    </p>
+
+    <!-- HAS_UPPERCASE METHOD -->
+    <p class="frmValidation" :class="{'frmValidation--passed' :has_uppercase }">
+        <i class="frmIcon fas" :class="has_uppercase ? 'fa-check' : 'fa-times'"></i>
+        Has a capital letter
+    </p>
+
+    <!-- HAS_LOWERCASE METHOD -->
+    <p class="frmValidation" :class="{'frmValidation--passed' :has_lowercase }">
+        <i class="frmIcon fas" :class="has_lowercase ? 'fa-check' : 'fa-times'"></i>
+        Has a lowercase letter
+    </p>
+
+    <!-- HAS_NUMBER METHOD -->
+    <p class="frmValidation" :class="{'frmValidation--passed' : has_number }">
+        <i class="frmIcon fas" :class="has_number ? 'fa-check' : 'fa-times'"></i>
+        Has a number
+    </p>
+
+    <!-- HAS_SPECIAL METHOD -->
+    <p class="frmValidation" :class="{'frmValidation--passed' : has_special }">
+        <i class="frmIcon fas" :class="has_special ? 'fa-check' : 'fa-times'"></i>
+        Has a special character
+    </p>
+</div><!-- #app  -->
+<!-- Tuka dopolnitelno go dodavame Vue.js -->
+<script src="https://cdn.jsdelivr.net/npm/vue@3.2.47/dist/vue.global.js"></script>
+<script src="index.js"></script>
+</body>
+</html>
