@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Email Validation Indicator</title>
+    <link rel='stylesheet' href='css/all.css'>
+    <link rel="stylesheet" href="css/style.css">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+<div id="email" class="container">
+    <h1>Vue Email Validation Indicator</h1>
+    <label class="frmLabel" for="email">Email</label>
+    <input
+            placeholder="Enter your email"
+            name="email"
+            class="frmField"
+            type="email"
+            v-model="email"
+    />
+    <p class="frmValidation" :class="{'frmValidation--passed' : isValidLength }">
+        <i class="frmIcon fas" :class="isValidLength ? 'fa-check' : 'fa-times'"></i>
+        Longer than 5 characters
+    </p>
+    <p class="frmValidation" :class="{'frmValidation--passed' : hasAtSymbol }">
+        <i class="frmIcon fas" :class="hasAtSymbol ? 'fa-check' : 'fa-times'"></i>
+        Contains '@' symbol
+    </p>
+    <p class="frmValidation" :class="{'frmValidation--passed' : hasValidDomain }">
+        <i class="frmIcon fas" :class="hasValidDomain ? 'fa-check' : 'fa-times'"></i>
+        Ends with valid domain (e.g., .com, .org)
+    </p>
+
+</div><!-- #app -->
+<script src="https://cdn.jsdelivr.net/npm/vue@3.2.47/dist/vue.global.js"></script>
+<script src="email.js"></script>
+
+
+</body>
+</html>
