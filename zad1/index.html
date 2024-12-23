@@ -14,10 +14,15 @@
     <h1>Vue Password Strength Indicator</h1>
     <label class="frmLabel" for="app">Password</label>
     <!-- Tuka dodadovme @input="password = $event.target.value" i model="password" -->
-    <input placeholder="Enter your password" name="password" class="frmField" type="password"
-           @input="password = $event.target.value" v-model="password"/>
+    <input placeholder="Enter your password"
+           name="password"
+           class="frmField"
+           type="password"
+           @input="password = $event.target.value"
+           v-model="password"
+    />
 
-    <!-- Obicna proverka za dolzinata na lozinkata -->
+    <!-- CHECK PASSWORD LENGTH -->
     <p class="frmValidation" :class="{'frmValidation--passed' : message.length > 7}">
         <i class="frmIcon fas" :class="message.length > 7 ? 'fa-check' : 'fa-times'"></i>
         Longer than 7 characters
